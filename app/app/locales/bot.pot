@@ -1,0 +1,54 @@
+# Translations template for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-08-04 22:22+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: handlers.py:14
+msgid ""
+"Hello! With this bot, you can subscribe to the EUC Testing Initiative for"
+" UniRoadMap to help us create a really polished and good product! Your "
+"data will be used to create unique settings for each EUC model for our "
+"navigation engine. Every personal information about you is stored "
+"securely and no one except our developers can access it."
+msgstr ""
+
+#: handlers.py:26
+msgid ""
+"Where do you live? Please write your country and city names, e.g. New "
+"York, US"
+msgstr ""
+
+#: handlers.py:27
+msgid "Which distance you typically ride(in kilometres)?"
+msgstr ""
+
+#: handlers.py:28
+msgid "What speed do you ride most often?"
+msgstr ""
+
+#: handlers.py:42
+msgid "Registration passed!"
+msgstr ""
+
+#: utils.py:24
+msgid "The maximum allowed length for this value is {max_length} characters"
+msgstr ""
+
+#: utils.py:32
+msgid "The entered value is not an integer"
+msgstr ""
+
