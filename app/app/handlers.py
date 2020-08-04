@@ -2,8 +2,7 @@ from aiogram import filters, types
 from app.core.bot import dp
 from app.core.language import _  # noqa
 from app.crud import crud_user
-from app.models import User
-from app.utils import not_registered, check_value
+from app.utils import not_registered, check_value, registration_messages
 
 
 @dp.message_handler(filters.CommandStart())
@@ -18,22 +17,7 @@ async def start(message: types.Message):
     if await crud_user.is_registered(message.from_user.id):
         return
 
-    await continue_registration(message)
-
-
-async def continue_registration(message: types.Message):
-    registration_procedure = {
-        User.place_residence.key: _("Where do you live? Please write your country and city names, e.g. New York, US"),
-        User.normal_distance.key: _("Which distance you typically ride(in kilometres)?"),
-        User.normal_speed.key: _("What speed do you ride most often?"),
-    }
-
-    column = await crud_user.next_need_column(message.from_user.id)
-
-    if column is None:
-        await message.answer(_("Registration passed!"))
-    else:
-        await message.answer(registration_procedure.get(column.key))
+    await registration_messages(message.from_user.id)
 
 
 @dp.message_handler(not_registered)
@@ -43,10 +27,14 @@ async def registration(message: types.Message):
     if column is None:
         return
 
-    value = await check_value(message, column, message.text)
+    try:
+        value = await check_value(column, message.text)
+    except Exception as exc:
+        await message.answer(exc.args[0])
+        return
 
     if value is None:
         return
 
     await crud_user.update(message.from_user.id, **{column.key: value})
-    await continue_registration(message)
+    await registration_messages(message.from_user.id)
