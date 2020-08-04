@@ -1,0 +1,29 @@
+[
+  {
+    "road_type": {
+      "ru": "ровной дороге (обычный асфальт)"
+    },
+    "permissible_angle": "15-20",
+    "charge_percentage": 20,
+    "need_speed": "30-35",
+    "example_road": "https://goo.gl/maps/FV2L4pGkZcRN3xd67"
+  },
+  {
+    "road_type": {
+      "ru": "немного разбитой дороге"
+    },
+    "permissible_angle": "15-20",
+    "charge_percentage": 20,
+    "need_speed": "25-35",
+    "example_road": "https://goo.gl/maps/kvgz7QAvivX92szt5"
+  },
+  {
+    "road_type": {
+      "ru": "грунтовой местности"
+    },
+    "permissible_angle": "20-25",
+    "charge_percentage": 20,
+    "need_speed": "25-30",
+    "example_road": "https://goo.gl/maps/ad797CSfjgqtoS2y7"
+  }
+]

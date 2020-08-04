@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    volumes:
+      - app-db-data:/var/lib/postgresql/data/pgdata
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  bot:
+    env_file:
+      - .env
+    depends_on:
+      - db
+    build:
+      context: app
+      dockerfile: bot.dockerfile
+
+volumes:
+  app-db-data:

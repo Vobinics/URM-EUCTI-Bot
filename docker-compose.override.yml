@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  db:
+    ports:
+    - "5432:5432"
+
+  bot:
+    volumes:
+      - ./app:/app
+    environment:
+      - DEBUG=True

@@ -1,0 +1,4 @@
+**/__pycache__
+alembic/versions/*.py
+app.egg-info
+poetry.lock
