@@ -1,6 +1,8 @@
 from aiogram import filters
-from aiogram.types import (Message, CallbackQuery, ParseMode, BotCommand, ReplyKeyboardMarkup, KeyboardButton)
-from app.core.bot import dp
+from aiogram.types import (Message, CallbackQuery, ParseMode, BotCommand, ReplyKeyboardMarkup, KeyboardButton,
+                           ContentType, ChatActions)
+from app.core.bot import dp, bot
+from app.core.config import settings
 from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
 from app.keyboards import task_keyboard
@@ -124,7 +126,13 @@ async def proceed_task_handler(callback_query: CallbackQuery):
         await callback_query.answer(_("Task refused"))
 
     elif await crud_task.exists(parsed_menu[1]):
+        done_tasks = await crud_user.get_done_tasks(callback_query.from_user.id)
         task_id = await crud_user.set_proceed_task(callback_query.from_user.id, parsed_menu[1])
+
+        if task_id in done_tasks:
+            await callback_query.answer(_("This task has already been completed"))
+            return
+
         task = await crud_task.get(task_id)
 
         keyboard = await task_keyboard(task['example_road'])
@@ -134,3 +142,36 @@ async def proceed_task_handler(callback_query: CallbackQuery):
 
     else:
         await callback_query.answer(_("Task with this id does not exist"))
+
+
+@dp.message_handler(content_types=ContentType.DOCUMENT)
+async def report_handler(message: Message):
+    if message.document.mime_type != 'text/comma-separated-values':
+        await message.answer(_('Invalid file format! Need a file in csv format'))
+        return
+
+    if message.caption is None:
+        await message.answer(_('The submitted file has no signature with the electric unicycle model'))
+        return
+
+    await message.answer(_('Thanks for your input!'))
+
+    user = await crud_user.get_or_create(message.from_user.id)
+    await crud_user.add_done_task(message.from_user.id, user.proceed_task)
+    await crud_user.unset_proceed_task(message.from_user.id)
+
+    format_data = dict(
+        task_id=user.proceed_task,
+        user_name=message.from_user.full_name,
+        user_id=message.from_user.id,
+        caption=message.caption
+    )
+
+    text = _(
+        "*Task {task_id}*\n"
+        "User: [{user_name}](tg://user?id={user_id})\n"
+        "Message: {caption}"
+    ).format(**format_data)
+
+    await bot.send_chat_action(settings.CHAT_ID, ChatActions.UPLOAD_DOCUMENT)
+    await bot.send_document(settings.CHAT_ID, message.document.file_id, caption=text, parse_mode=ParseMode.MARKDOWN)
