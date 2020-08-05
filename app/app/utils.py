@@ -80,3 +80,7 @@ async def is_task(message: Message):
 
 async def is_admin(message: Message):
     return message.from_user.id in settings.ADMINS_IDS
+
+
+async def is_private(message: Message):
+    return message.chat.type == 'private'
