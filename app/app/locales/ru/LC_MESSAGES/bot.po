@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-05 14:21+0300\n"
-"PO-Revision-Date: 2020-08-05 14:21+0300\n"
+"POT-Creation-Date: 2020-08-05 16:48+0300\n"
+"PO-Revision-Date: 2020-08-05 16:48+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: handlers.py:14
+#: handlers.py:16
 msgid ""
 "Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap "
 "to help us create a really polished and good product! "
@@ -31,22 +31,44 @@ msgstr ""
 "Ваши данные будут использованы для создания уникальных настроек для каждой модели EUC для нашего навигационного движка. "
 "Каждая личная информация о вас надежно хранится, и никто, кроме наших разработчиков, не может получить к ней доступ."
 
-#: handlers.py:72
+#: handlers.py:74
 msgid "*Allow tasks*"
 msgstr "*Доступные задания*"
 
-#: handlers.py:82 handlers.py:107
+#: handlers.py:83 handlers.py:121
 msgid "Task with this id does not exist"
 msgstr "Задачи с таким id не существует"
 
-#: handlers.py:85
+#: handlers.py:88
+msgid "Done"
+msgstr "Готово"
+
+#: handlers.py:90
+msgid "In work"
+msgstr "В работе"
+
+#: handlers.py:92
+msgid "Not performed"
+msgstr "Не выполнено"
+
+#: handlers.py:94
 msgid ""
-"Drive along {road_type} with slides and slopes at an angle of no more than {permissible_angle} degrees. "
-"Start should be with a full battery charge, and stop at {charge_percentage} percentage of the battery. "
-"Speed should be within {need_speed} km/h. The trip should be recorded to a file using the WheelLog program. "
-"If you have an iOS device, use the EUCWorld application. "
-"In the report, along with the file, write which unicycle you drove."
+"*Task {task_id}*\n"
+"Status: {status}\n"
+"\n"
+"*Task description*\n"
+"Drive along {road_type} with slides and slopes at an angle of no more "
+"than {permissible_angle} degrees. Start should be with a full battery "
+"charge, and stop at {charge_percentage} percentage of the battery. Speed "
+"should be within {need_speed} km/h. The trip should be recorded to a file"
+" using the WheelLog program. If you have an iOS device, use the EUCWorld "
+"application. In the report, along with the file, write which unicycle you"
+" drove"
 msgstr ""
+"*Задача {task_id}*\n"
+"Статус: {status}\n"
+"\n"
+"*Текст задания*\n"
 "Проехать по {road_type} с горками и спусками углом не более {permissible_angle} градусов. "
 "Старт должен быть с полным зарядом батареи, а стоп на {charge_percentage} процентах батареи. "
 "Скорость должна быть в границах {need_speed} км/ч. "
@@ -54,15 +76,15 @@ msgstr ""
 "Если у Вас устройство iOS, используйте приложение EUCWorld. "
 "В отчете вместе с файлом напишите, на каком моноколесе вы ехали."
 
-#: handlers.py:92
+#: handlers.py:106
 msgid "Example road"
 msgstr "Пример дороги"
 
-#: handlers.py:93
+#: handlers.py:107
 msgid "Proceed with!"
 msgstr "Взять задание"
 
-#: handlers.py:104
+#: handlers.py:118
 msgid "This task is marked as in progress"
 msgstr "Теперь это задание помечено как исполняемое"
 

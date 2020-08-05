@@ -81,17 +81,30 @@ async def task_handler(message: Message):
         await message.answer(_("Task with this id does not exist"))
         return
 
-    text = _("Drive along {road_type} with slides and slopes at an angle of no more than {permissible_angle} degrees. "
-             "Start should be with a full battery charge, and stop at {charge_percentage} percentage of the battery. "
-             "Speed should be within {need_speed} km/h. The trip should be recorded to a file using the WheelLog "
-             "program. If you have an iOS device, use the EUCWorld application. In the report, along with the file, "
-             "write which unicycle you drove.")
+    user = await crud_user.get_or_create(message.from_user.id)
+    if task_id in user.done_tasks:
+        status = _('Done')
+    elif task_id == user.proceed_task:
+        status = _('In work')
+    else:
+        status = _('Not performed')
+
+    text = _(
+        "*Task {task_id}*\n"
+        "Status: {status}\n\n"
+        "*Task description*\n"
+        "Drive along {road_type} with slides and slopes at an angle of no more than {permissible_angle} degrees. "
+        "Start should be with a full battery charge, and stop at {charge_percentage} percentage of the battery. "
+        "Speed should be within {need_speed} km/h. The trip should be recorded to a file using the WheelLog "
+        "program. If you have an iOS device, use the EUCWorld application. In the report, along with the file, "
+        "write which unicycle you drove"
+    ).format(**task, task_id=task_id, status=status)
 
     keyboard = InlineKeyboardMarkup()
     keyboard.add(InlineKeyboardButton(_('Example road'), url=task['example_road']))
     keyboard.add(InlineKeyboardButton(_('Proceed with!'), callback_data=f'proceed/{task_id}/set'))
 
-    await message.answer(text.format(**task), reply_markup=keyboard)
+    await message.answer(text, reply_markup=keyboard, parse_mode=ParseMode.MARKDOWN)
 
 
 @dp.callback_query_handler(menu('proceed', 0), menu('set', -1))
