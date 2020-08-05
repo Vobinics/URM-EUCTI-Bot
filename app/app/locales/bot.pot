@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-05 22:38+0300\n"
+"POT-Creation-Date: 2020-08-06 00:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,27 +26,36 @@ msgid ""
 "securely and no one except our developers can access it."
 msgstr ""
 
-#: handlers.py:73
+#: handlers.py:32
+msgid ""
+"This bot is designed to collect unicycle trip logs.\n"
+"These logs will help you create optimized configurations for each "
+"electric unicycle\n"
+"\n"
+"To start, follow the instructions after calling the command /start"
+msgstr ""
+
+#: handlers.py:85
 msgid "*Allow tasks*"
 msgstr ""
 
-#: handlers.py:83 handlers.py:144
+#: handlers.py:95 handlers.py:161
 msgid "Task with this id does not exist"
 msgstr ""
 
-#: handlers.py:88
+#: handlers.py:100
 msgid "Done"
 msgstr ""
 
-#: handlers.py:91
+#: handlers.py:103
 msgid "In work"
 msgstr ""
 
-#: handlers.py:94
+#: handlers.py:106
 msgid "Not performed"
 msgstr ""
 
-#: handlers.py:97
+#: handlers.py:109
 msgid ""
 "*Difficulty: {task_title}*\n"
 "Status: {status}\n"
@@ -61,35 +70,47 @@ msgid ""
 " drove"
 msgstr ""
 
-#: handlers.py:126
+#: handlers.py:138
 msgid "Task refused"
 msgstr ""
 
-#: handlers.py:133
+#: handlers.py:145
 msgid "This task has already been completed"
 msgstr ""
 
-#: handlers.py:141
-msgid "This task is marked as in progress"
+#: handlers.py:153
+msgid ""
+"After completing this task, send the recorded logs to the bot in csv "
+"format and a signature to the file with the model of your electric "
+"unicycle"
 msgstr ""
 
-#: handlers.py:150
+#: handlers.py:167
 msgid "Invalid file format! Need a file in csv format"
 msgstr ""
 
-#: handlers.py:154
+#: handlers.py:171
 msgid "The submitted file has no signature with the electric unicycle model"
 msgstr ""
 
-#: handlers.py:157
+#: handlers.py:174
 msgid "Thanks for your input!"
 msgstr ""
 
-#: handlers.py:171
+#: handlers.py:181
 msgid ""
 "*Difficulty: {task_title}*\n"
 "User: [{user_name}](tg://user?id={user_id})\n"
+"Normal speed: {normal_speed}\n"
+"Normal distance: {normal_distance}\n"
+"Place residence: {place_residence}\n"
 "Message: {caption}"
+msgstr ""
+
+#: handlers.py:204
+msgid ""
+"The request was not recognized. For instructions on how to use the bot, "
+"call the /help command"
 msgstr ""
 
 #: keyboards.py:9

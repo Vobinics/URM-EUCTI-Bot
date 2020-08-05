@@ -11,12 +11,14 @@ from app.utils import (not_registered, check_value, registration_messages, task_
 
 
 @dp.message_handler(filters.CommandStart())
-async def start(message: Message):
+async def start_handler(message: Message):
     # Welcome
-    text = _("Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap to help us create "
-             "a really polished and good product! Your data will be used to create unique settings for each EUC model "
-             "for our navigation engine. Every personal information about you is stored securely and no one except "
-             "our developers can access it.")
+    text = _(
+        "Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap to help us create "
+        "a really polished and good product! Your data will be used to create unique settings for each EUC model "
+        "for our navigation engine. Every personal information about you is stored securely and no one except "
+        "our developers can access it."
+    )
     await message.answer(text)
 
     if await crud_user.is_registered(message.from_user.id):
@@ -25,10 +27,21 @@ async def start(message: Message):
         await registration_messages(message.from_user.id)
 
 
+@dp.message_handler(filters.CommandHelp())
+async def help_handler(message: Message):
+    text = _(
+        "This bot is designed to collect unicycle trip logs.\n"
+        "These logs will help you create optimized configurations for each electric unicycle\n\n"
+        "To start, follow the instructions after calling the command /start"
+    )
+    await message.answer(text)
+
+
 @dp.message_handler(filters.Command('cmd-set'), is_admin)
 async def set_commands(message: Message):
     commands = [
         BotCommand(command="/start", description="Start"),
+        BotCommand(command="/help", description="Help message"),
         BotCommand(command="/tasks", description="Allow tasks")
         # BotCommand(command="/execution", description="Task in execution")
     ]
@@ -77,11 +90,12 @@ async def tasks_handler(message: Message):
 async def task_handler(message: Message):
     task_title = await task_parser(message.text)
     task = await crud_task.get_by_title(task_title)
-    task_id = task['id']
 
     if task is None:
         await message.answer(_("Task with this id does not exist"))
         return
+
+    task_id = task['id']
 
     user = await crud_user.get_or_create(message.from_user.id)
     if task_id in user.done_tasks:
@@ -138,7 +152,12 @@ async def proceed_task_handler(callback_query: CallbackQuery):
         keyboard = await task_keyboard(task['example_road'])
         await callback_query.message.edit_reply_markup(keyboard)
 
-        await callback_query.answer(_("This task is marked as in progress"))
+        text = _(
+            "After completing this task, send the recorded logs to the bot in csv format and a signature to the file "
+            "with the model of your electric unicycle"
+        )
+
+        await callback_query.answer(text, show_alert=True)
 
     else:
         await callback_query.answer(_("Task with this id does not exist"))
@@ -161,18 +180,28 @@ async def report_handler(message: Message):
     await crud_user.unset_proceed_task(message.from_user.id)
     task = await crud_task.get(user.proceed_task)
 
-    format_data = dict(
-        task_title=task['title'],
-        user_name=message.from_user.full_name,
-        user_id=message.from_user.id,
-        caption=message.caption
-    )
-
     text = _(
         "*Difficulty: {task_title}*\n"
         "User: [{user_name}](tg://user?id={user_id})\n"
+        "Normal speed: {normal_speed}\n"
+        "Normal distance: {normal_distance}\n"
+        "Place residence: {place_residence}\n"
         "Message: {caption}"
-    ).format(**format_data)
+    ).format(
+        task_title=task['title'],
+        user_name=message.from_user.full_name,
+        user_id=message.from_user.id,
+        caption=message.caption,
+        normal_speed=user.normal_speed,
+        normal_distance=user.normal_distance,
+        place_residence=user.place_residence
+    )
 
     await bot.send_chat_action(settings.CHAT_ID, ChatActions.UPLOAD_DOCUMENT)
     await bot.send_document(settings.CHAT_ID, message.document.file_id, caption=text, parse_mode=ParseMode.MARKDOWN)
+
+
+@dp.message_handler(content_types=ContentType.ANY)
+async def other(message: Message):
+    text = _("The request was not recognized. For instructions on how to use the bot, call the /help command")
+    await message.answer(text)
