@@ -9,6 +9,7 @@ BASE_DIR = Path(__file__).parent.parent
 class Settings(BaseSettings):
     API_TOKEN: str
     ADMINS_IDS: List[int] = []
+    CHAT_ID: int
     DEBUG: bool = False
     DATA_FOLDER: Path = BASE_DIR / 'data'
 
@@ -19,7 +20,7 @@ class Settings(BaseSettings):
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
-    def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:
+    def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:  # noqa
         if isinstance(v, str):
             return v
         return PostgresDsn.build(

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 22:22+0300\n"
+"POT-Creation-Date: 2020-08-05 14:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,29 +26,64 @@ msgid ""
 "securely and no one except our developers can access it."
 msgstr ""
 
-#: handlers.py:26
+#: handlers.py:72
+msgid "*Allow tasks*"
+msgstr ""
+
+#: handlers.py:82 handlers.py:107
+msgid "Task with this id does not exist"
+msgstr ""
+
+#: handlers.py:85
 msgid ""
-"Where do you live? Please write your country and city names, e.g. New "
-"York, US"
+"Drive along {road_type} with slides and slopes at an angle of no more "
+"than {permissible_angle} degrees. Start should be with a full battery "
+"charge, and stop at {charge_percentage} percentage of the battery. Speed "
+"should be within {need_speed} km/h. The trip should be recorded to a file"
+" using the WheelLog program. If you have an iOS device, use the EUCWorld "
+"application. In the report, along with the file, write which unicycle you"
+" drove."
 msgstr ""
 
-#: handlers.py:27
-msgid "Which distance you typically ride(in kilometres)?"
+#: handlers.py:92
+msgid "Example road"
 msgstr ""
 
-#: handlers.py:28
-msgid "What speed do you ride most often?"
+#: handlers.py:93
+msgid "Proceed with!"
 msgstr ""
 
-#: handlers.py:42
-msgid "Registration passed!"
+#: handlers.py:104
+msgid "This task is marked as in progress"
 msgstr ""
 
 #: utils.py:24
 msgid "The maximum allowed length for this value is {max_length} characters"
 msgstr ""
 
-#: utils.py:32
+#: utils.py:30
 msgid "The entered value is not an integer"
+msgstr ""
+
+#: utils.py:37
+msgid ""
+"Where do you live? Please write your country and city names, e.g. New "
+"York, US"
+msgstr ""
+
+#: utils.py:38
+msgid "Which distance you typically ride(in kilometres)?"
+msgstr ""
+
+#: utils.py:39
+msgid "What speed do you ride most often?"
+msgstr ""
+
+#: utils.py:45
+msgid "Registration passed!"
+msgstr ""
+
+#: utils.py:69
+msgid "Task"
 msgstr ""
 

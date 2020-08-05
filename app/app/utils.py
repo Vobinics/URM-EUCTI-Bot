@@ -1,12 +1,15 @@
-from aiogram import types
+from typing import List, Union
+
+from aiogram.types import Message, CallbackQuery
 from app.core.bot import bot
-from app.core.language import _
+from app.core.config import settings
+from app.core.language import _  # noqa
 from app.crud import crud_user
 from app.models import User
 from sqlalchemy import Column, String, Integer
 
 
-async def not_registered(message: types.Message) -> bool:
+async def not_registered(message: Message) -> bool:
     return not await crud_user.is_registered(message.from_user.id)
 
 
@@ -40,5 +43,41 @@ async def registration_messages(user_id: int):
 
     if column is None:
         await bot.send_message(user_id, _("Registration passed!"))
+        return True
     else:
         await bot.send_message(user_id, registration_procedure.get(column.key))
+
+
+async def menu_parser(cb_data: str) -> List[Union[str, int]]:
+    parsed_menu = cb_data.split('/')
+    return [int(line) if line.isdigit() else line for line in parsed_menu]
+
+
+def menu(value: str, position: int):
+    async def wrapper(callback_query: CallbackQuery):
+        parsed_menu = await menu_parser(callback_query.data)
+        return parsed_menu[position] == value
+
+    return wrapper
+
+
+async def task_parser(text) -> int:
+    parsed = text.split(' ')
+    assert len(parsed) == 2
+    name, task_id = parsed
+    assert task_id.isdigit()
+    assert name == _("Task")
+    return int(task_id)
+
+
+async def is_task(message: Message):
+    try:
+        await task_parser(message.text)
+    except AssertionError:
+        return False
+    else:
+        return True
+
+
+async def is_admin(message: Message):
+    return message.from_user.id in settings.ADMINS_IDS

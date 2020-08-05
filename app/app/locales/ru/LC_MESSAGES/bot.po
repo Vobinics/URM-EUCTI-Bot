@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 22:22+0300\n"
-"PO-Revision-Date: 2020-08-04 22:22+0300\n"
+"POT-Creation-Date: 2020-08-05 14:21+0300\n"
+"PO-Revision-Date: 2020-08-05 14:21+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -21,38 +21,76 @@ msgstr ""
 
 #: handlers.py:14
 msgid ""
-"Hello! With this bot, you can subscribe to the EUC Testing Initiative for"
-" UniRoadMap to help us create a really polished and good product! Your "
-"data will be used to create unique settings for each EUC model for our "
-"navigation engine. Every personal information about you is stored "
-"securely and no one except our developers can access it."
+"Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap "
+"to help us create a really polished and good product! "
+"Your data will be used to create unique settings for each EUC model for our navigation engine. "
+"Every personal information about you is stored securely and no one except our developers can access it."
 msgstr ""
 "Здравствуйте! С помощью этого бота вы можете подписаться на EUC Testing Initiative для UniRoadMap, "
 "чтобы помочь нам создать действительно отточенный и хороший продукт! "
 "Ваши данные будут использованы для создания уникальных настроек для каждой модели EUC для нашего навигационного движка. "
 "Каждая личная информация о вас надежно хранится, и никто, кроме наших разработчиков, не может получить к ней доступ."
 
-#: handlers.py:26
-msgid "Where do you live? Please write your country and city names, e.g. New York, US"
-msgstr "Где ты живешь? Пожалуйста, напишите название вашей страны и города. Например: Киев, Украина"
+#: handlers.py:72
+msgid "*Allow tasks*"
+msgstr "*Доступные задания*"
 
-#: handlers.py:27
-msgid "Which distance you typically ride(in kilometres)?"
-msgstr "Какое расстояние вы обычно проезжаете (в километрах)?"
+#: handlers.py:82 handlers.py:107
+msgid "Task with this id does not exist"
+msgstr "Задачи с таким id не существует"
 
-#: handlers.py:28
-msgid "What speed do you ride most often?"
-msgstr "На какой скорости вы ездите чаще всего?"
+#: handlers.py:85
+msgid ""
+"Drive along {road_type} with slides and slopes at an angle of no more than {permissible_angle} degrees. "
+"Start should be with a full battery charge, and stop at {charge_percentage} percentage of the battery. "
+"Speed should be within {need_speed} km/h. The trip should be recorded to a file using the WheelLog program. "
+"If you have an iOS device, use the EUCWorld application. "
+"In the report, along with the file, write which unicycle you drove."
+msgstr ""
+"Проехать по {road_type} с горками и спусками углом не более {permissible_angle} градусов. "
+"Старт должен быть с полным зарядом батареи, а стоп на {charge_percentage} процентах батареи. "
+"Скорость должна быть в границах {need_speed} км/ч. "
+"Поездка должна записываться в файл при помощи программы WheelLog. "
+"Если у Вас устройство iOS, используйте приложение EUCWorld. "
+"В отчете вместе с файлом напишите, на каком моноколесе вы ехали."
 
-#: handlers.py:42
-msgid "Registration passed!"
-msgstr "Регистрация завершена!"
+#: handlers.py:92
+msgid "Example road"
+msgstr "Пример дороги"
+
+#: handlers.py:93
+msgid "Proceed with!"
+msgstr "Взять задание"
+
+#: handlers.py:104
+msgid "This task is marked as in progress"
+msgstr "Теперь это задание помечено как исполняемое"
 
 #: utils.py:24
 msgid "The maximum allowed length for this value is {max_length} characters"
 msgstr "Максимальная допустимая длина для этого значения является {max_length} символов"
 
-#: utils.py:32
+#: utils.py:30
 msgid "The entered value is not an integer"
 msgstr "Введенное значение не является целым числом"
+
+#: utils.py:37
+msgid "Where do you live? Please write your country and city names, e.g. New York, US"
+msgstr "Где ты живешь? Пожалуйста, напишите название вашей страны и города. Например: Киев, Украина"
+
+#: utils.py:38
+msgid "Which distance you typically ride(in kilometres)?"
+msgstr "Какое расстояние вы обычно проезжаете (в километрах)?"
+
+#: utils.py:39
+msgid "What speed do you ride most often?"
+msgstr "На какой скорости вы ездите чаще всего?"
+
+#: utils.py:45
+msgid "Registration passed!"
+msgstr "Регистрация завершена!"
+
+#: utils.py:69
+msgid "Task"
+msgstr "Задание"
 

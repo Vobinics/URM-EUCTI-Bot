@@ -1,3 +1,5 @@
+from typing import List, Optional
+
 from app.models import User
 from sqlalchemy import Column
 
@@ -13,9 +15,9 @@ class CRUDUser:
     async def create(user_id: int) -> User:
         return await User(id=user_id).create()
 
-    async def update(self, user_id: int, **kwargs) -> User:
-        user = await self.get_or_create(user_id)
-        return await user.update(**kwargs).apply()
+    @staticmethod
+    async def update(user_obj: Optional[User] = None, **kwargs) -> User:
+        return await user_obj.update(**kwargs).apply()
 
     async def get_or_create(self, user_id: int) -> User:
         return await self.get(user_id) or await self.create(user_id)
@@ -29,6 +31,27 @@ class CRUDUser:
         for column in self.need_fields:
             if getattr(user, column.key) is None:
                 return column
+
+    async def get_done_tasks(self, user_id: int) -> List[int]:
+        user = await self.get_or_create(user_id)
+        done_tasks: list = user.done_tasks
+        done_tasks.sort()
+        return done_tasks
+
+    async def set_done_task(self, user_id: int, task_id: int) -> User:
+        user = await self.get_or_create(user_id)
+        done_tasks: list = user.done_tasks
+        done_tasks.append(task_id)
+        done_tasks.sort()
+        return await self.update(user, done_tasks=done_tasks)
+
+    async def get_proceed_task(self, user_id: int) -> User:
+        user = await self.get_or_create(user_id)
+        return user.proceed_task
+
+    async def set_proceed_task(self, user_id: int, task_id: int) -> User:
+        user = await self.get_or_create(user_id)
+        return await self.update(user, **{'proceed_task': task_id})
 
 
 crud_user = CRUDUser()

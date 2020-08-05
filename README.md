@@ -8,11 +8,12 @@
 # Bot
 API_TOKEN=сюда свой токен для бота
 ADMINS_IDS=[здесь нужно перечислить id админов через запятую без ковычек]
+CHAT_ID=id чата в который будут отправляться отчеты от пользователей
 
 # Postgres
 POSTGRES_SERVER=db
 POSTGRES_USER=postgres
-POSTGRES_PASSWORD=changethis
+POSTGRES_PASSWORD=changethis # поставте более надежный пароль для продакшена
 POSTGRES_DB=app
 ```
 #### Подготовка БД

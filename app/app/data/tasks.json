@@ -1,7 +1,9 @@
 [
   {
+    "id": 1,
     "road_type": {
-      "ru": "ровной дороге (обычный асфальт)"
+      "ru": "ровной дороге (обычный асфальт)",
+      "en": "flat road (regular asphalt)"
     },
     "permissible_angle": "15-20",
     "charge_percentage": 20,
@@ -9,8 +11,10 @@
     "example_road": "https://goo.gl/maps/FV2L4pGkZcRN3xd67"
   },
   {
+    "id": 2,
     "road_type": {
-      "ru": "немного разбитой дороге"
+      "ru": "немного разбитой дороге",
+      "en": "a bit bumpy road"
     },
     "permissible_angle": "15-20",
     "charge_percentage": 20,
@@ -18,8 +22,10 @@
     "example_road": "https://goo.gl/maps/kvgz7QAvivX92szt5"
   },
   {
+    "id": 3,
     "road_type": {
-      "ru": "грунтовой местности"
+      "ru": "грунтовой местности",
+      "en": "dirt terrain"
     },
     "permissible_angle": "20-25",
     "charge_percentage": 20,
