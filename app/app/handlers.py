@@ -122,7 +122,7 @@ async def task_handler(message: Message):
     await message.answer(text, reply_markup=keyboard, parse_mode=ParseMode.MARKDOWN)
 
 
-@dp.callback_query_handler(menu('task', 0))
+@dp.callback_query_handler(menu('task', 0), is_private)
 async def proceed_task_handler(callback_query: CallbackQuery):
     parsed_menu = await menu_parser(callback_query.data)
 
