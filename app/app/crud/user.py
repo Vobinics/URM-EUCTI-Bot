@@ -45,13 +45,20 @@ class CRUDUser:
         done_tasks.sort()
         return await self.update(user, done_tasks=done_tasks)
 
-    async def get_proceed_task(self, user_id: int) -> User:
+    async def get_proceed_task(self, user_id: int) -> Optional[int]:
         user = await self.get_or_create(user_id)
         return user.proceed_task
 
-    async def set_proceed_task(self, user_id: int, task_id: int) -> User:
+    async def set_proceed_task(self, user_id: int, task_id: Optional[int] = None) -> int:
         user = await self.get_or_create(user_id)
-        return await self.update(user, **{'proceed_task': task_id})
+        await self.update(user, **{'proceed_task': task_id})
+        return task_id
+
+    async def unset_proceed_task(self, user_id: int) -> int:
+        user = await self.get_or_create(user_id)
+        last = user.proceed_task
+        await self.update(user, **{'proceed_task': None})
+        return last
 
 
 crud_user = CRUDUser()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-05 16:48+0300\n"
+"POT-Creation-Date: 2020-08-05 19:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: handlers.py:16
+#: handlers.py:14
 msgid ""
 "Hello! With this bot, you can subscribe to the EUC Testing Initiative for"
 " UniRoadMap to help us create a really polished and good product! Your "
@@ -26,19 +26,19 @@ msgid ""
 "securely and no one except our developers can access it."
 msgstr ""
 
-#: handlers.py:74
+#: handlers.py:72
 msgid "*Allow tasks*"
 msgstr ""
 
-#: handlers.py:83 handlers.py:121
+#: handlers.py:81 handlers.py:136
 msgid "Task with this id does not exist"
 msgstr ""
 
-#: handlers.py:88
+#: handlers.py:86
 msgid "Done"
 msgstr ""
 
-#: handlers.py:90
+#: handlers.py:89
 msgid "In work"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Not performed"
 msgstr ""
 
-#: handlers.py:94
+#: handlers.py:95
 msgid ""
 "*Task {task_id}*\n"
 "Status: {status}\n"
@@ -61,16 +61,24 @@ msgid ""
 " drove"
 msgstr ""
 
-#: handlers.py:106
+#: handlers.py:124
+msgid "Task refused"
+msgstr ""
+
+#: handlers.py:133
+msgid "This task is marked as in progress"
+msgstr ""
+
+#: keyboards.py:9
 msgid "Example road"
 msgstr ""
 
-#: handlers.py:107
-msgid "Proceed with!"
+#: keyboards.py:15
+msgid "Refuse to execute"
 msgstr ""
 
-#: handlers.py:118
-msgid "This task is marked as in progress"
+#: keyboards.py:17
+msgid "Proceed with!"
 msgstr ""
 
 #: utils.py:24

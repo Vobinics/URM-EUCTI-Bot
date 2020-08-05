@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-05 16:48+0300\n"
-"PO-Revision-Date: 2020-08-05 16:48+0300\n"
+"POT-Creation-Date: 2020-08-05 19:07+0300\n"
+"PO-Revision-Date: 2020-08-05 19:07+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: handlers.py:16
+#: handlers.py:14
 msgid ""
 "Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap "
 "to help us create a really polished and good product! "
@@ -31,19 +31,19 @@ msgstr ""
 "Ваши данные будут использованы для создания уникальных настроек для каждой модели EUC для нашего навигационного движка. "
 "Каждая личная информация о вас надежно хранится, и никто, кроме наших разработчиков, не может получить к ней доступ."
 
-#: handlers.py:74
+#: handlers.py:72
 msgid "*Allow tasks*"
 msgstr "*Доступные задания*"
 
-#: handlers.py:83 handlers.py:121
+#: handlers.py:81 handlers.py:136
 msgid "Task with this id does not exist"
 msgstr "Задачи с таким id не существует"
 
-#: handlers.py:88
+#: handlers.py:86
 msgid "Done"
 msgstr "Готово"
 
-#: handlers.py:90
+#: handlers.py:89
 msgid "In work"
 msgstr "В работе"
 
@@ -51,7 +51,7 @@ msgstr "В работе"
 msgid "Not performed"
 msgstr "Не выполнено"
 
-#: handlers.py:94
+#: handlers.py:95
 msgid ""
 "*Task {task_id}*\n"
 "Status: {status}\n"
@@ -76,17 +76,25 @@ msgstr ""
 "Если у Вас устройство iOS, используйте приложение EUCWorld. "
 "В отчете вместе с файлом напишите, на каком моноколесе вы ехали."
 
-#: handlers.py:106
+#: handlers.py:124
+msgid "Task refused"
+msgstr "Задача отклонена"
+
+#: handlers.py:133
+msgid "This task is marked as in progress"
+msgstr "Теперь это задание помечено как исполняемое"
+
+#: keyboards.py:9
 msgid "Example road"
 msgstr "Пример дороги"
 
-#: handlers.py:107
+#: keyboards.py:15
+msgid "Refuse to execute"
+msgstr "Отказаться от исполнения"
+
+#: keyboards.py:17
 msgid "Proceed with!"
 msgstr "Взять задание"
-
-#: handlers.py:118
-msgid "This task is marked as in progress"
-msgstr "Теперь это задание помечено как исполняемое"
 
 #: utils.py:24
 msgid "The maximum allowed length for this value is {max_length} characters"
@@ -98,7 +106,7 @@ msgstr "Введенное значение не является целым ч�
 
 #: utils.py:37
 msgid "Where do you live? Please write your country and city names, e.g. New York, US"
-msgstr "Где ты живешь? Пожалуйста, напишите название вашей страны и города. Например: Киев, Украина"
+msgstr "Где вы живете? Пожалуйста, напишите название вашей страны и города. Например: Киев, Украина"
 
 #: utils.py:38
 msgid "Which distance you typically ride(in kilometres)?"
