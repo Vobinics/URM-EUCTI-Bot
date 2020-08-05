@@ -7,10 +7,10 @@ from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
 from app.keyboards import task_keyboard
 from app.utils import (not_registered, check_value, registration_messages, task_parser, is_admin, is_task, menu,
-                       menu_parser)
+                       menu_parser, is_private)
 
 
-@dp.message_handler(filters.CommandStart())
+@dp.message_handler(filters.CommandStart(), is_private)
 async def start_handler(message: Message):
     # Welcome
     text = _(
@@ -27,7 +27,7 @@ async def start_handler(message: Message):
         await registration_messages(message.from_user.id)
 
 
-@dp.message_handler(filters.CommandHelp())
+@dp.message_handler(filters.CommandHelp(), is_private)
 async def help_handler(message: Message):
     text = _(
         "This bot is designed to collect unicycle trip logs.\n"
@@ -37,7 +37,7 @@ async def help_handler(message: Message):
     await message.answer(text)
 
 
-@dp.message_handler(filters.Command('cmd-set'), is_admin)
+@dp.message_handler(filters.Command('cmd-set'), is_admin, is_private)
 async def set_commands(message: Message):
     commands = [
         BotCommand(command="/start", description="Start"),
@@ -49,7 +49,7 @@ async def set_commands(message: Message):
     await message.answer("Commands set up!")
 
 
-@dp.message_handler(not_registered)
+@dp.message_handler(not_registered, is_private)
 async def registration(message: Message):
     column = await crud_user.next_need_column(message.from_user.id)
 
@@ -74,7 +74,7 @@ async def registration(message: Message):
         await tasks_handler(message)
 
 
-@dp.message_handler(filters.Command('tasks'))
+@dp.message_handler(filters.Command('tasks'), is_private)
 async def tasks_handler(message: Message):
     tasks = await crud_task.get_all()
 
@@ -86,7 +86,7 @@ async def tasks_handler(message: Message):
     await message.answer(_("*Allow tasks*"), parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard)
 
 
-@dp.message_handler(is_task)
+@dp.message_handler(is_task, is_private)
 async def task_handler(message: Message):
     task_title = await task_parser(message.text)
     task = await crud_task.get_by_title(task_title)
@@ -163,7 +163,7 @@ async def proceed_task_handler(callback_query: CallbackQuery):
         await callback_query.answer(_("Task with this id does not exist"))
 
 
-@dp.message_handler(content_types=ContentType.DOCUMENT)
+@dp.message_handler(is_private, content_types=ContentType.DOCUMENT)
 async def report_handler(message: Message):
     if message.document.mime_type != 'text/comma-separated-values':
         await message.answer(_('Invalid file format! Need a file in csv format'))
@@ -201,7 +201,7 @@ async def report_handler(message: Message):
     await bot.send_document(settings.CHAT_ID, message.document.file_id, caption=text, parse_mode=ParseMode.MARKDOWN)
 
 
-@dp.message_handler(content_types=ContentType.ANY)
+@dp.message_handler(is_private, content_types=ContentType.ANY)
 async def other(message: Message):
     text = _("The request was not recognized. For instructions on how to use the bot, call the /help command")
     await message.answer(text)
