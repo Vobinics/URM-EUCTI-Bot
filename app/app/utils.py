@@ -61,13 +61,12 @@ def menu(value: str, position: int):
     return wrapper
 
 
-async def task_parser(text) -> int:
+async def task_parser(text) -> str:
     parsed = text.split(' ')
     assert len(parsed) == 2
-    name, task_id = parsed
-    assert task_id.isdigit()
-    assert name == _("Task")
-    return int(task_id)
+    name, task_title = parsed
+    assert name == _('Difficulty:')
+    return task_title
 
 
 async def is_task(message: Message):

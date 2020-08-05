@@ -11,6 +11,11 @@ def get_tasks() -> List[dict]:
         return json.load(file)
 
 
+def localed(table: dict):
+    user = User.get_current()
+    return table.get(user.locale.language, table['en'])
+
+
 class CRUDTask:
     tasks = {task['id']: task for task in get_tasks()}
 
@@ -18,17 +23,13 @@ class CRUDTask:
     async def _handler(*args) -> List[dict]:
         args = copy.deepcopy(args)
 
-        user = User.get_current()
-        locale = user.locale
-
-        if locale.language is None:
+        if User.get_current().locale is None:
             return list(args)
 
-        result = []
-        for task in args:
-            road_type: dict = task['road_type']
-            task['road_type']: str = road_type.get(locale.language, road_type['en'])
-            result.append(task)
+        result = [
+            {key: localed(var) if isinstance(var, dict) else var for key, var in task.items()}
+            for task in args
+        ]
 
         return result
 
@@ -42,6 +43,11 @@ class CRUDTask:
             return None
 
         return (await self._handler(task))[0]
+
+    async def get_by_title(self, task_title: str) -> Optional[dict]:
+        for task in self.tasks.values():
+            if task_title == localed(task['title']):
+                return (await self._handler(task))[0]
 
     async def exists(self, task_id: int) -> bool:
         task = await self.get(task_id)

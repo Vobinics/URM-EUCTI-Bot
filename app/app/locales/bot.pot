@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-05 21:52+0300\n"
+"POT-Creation-Date: 2020-08-05 22:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: handlers.py:15
+#: handlers.py:16
 msgid ""
 "Hello! With this bot, you can subscribe to the EUC Testing Initiative for"
 " UniRoadMap to help us create a really polished and good product! Your "
@@ -30,25 +30,25 @@ msgstr ""
 msgid "*Allow tasks*"
 msgstr ""
 
-#: handlers.py:82 handlers.py:143
+#: handlers.py:83 handlers.py:144
 msgid "Task with this id does not exist"
 msgstr ""
 
-#: handlers.py:87
+#: handlers.py:88
 msgid "Done"
 msgstr ""
 
-#: handlers.py:90
+#: handlers.py:91
 msgid "In work"
 msgstr ""
 
-#: handlers.py:93
+#: handlers.py:94
 msgid "Not performed"
 msgstr ""
 
-#: handlers.py:96
+#: handlers.py:97
 msgid ""
-"*Task {task_id}*\n"
+"*Difficulty: {task_title}*\n"
 "Status: {status}\n"
 "\n"
 "*Task description*\n"
@@ -61,33 +61,33 @@ msgid ""
 " drove"
 msgstr ""
 
-#: handlers.py:125
+#: handlers.py:126
 msgid "Task refused"
 msgstr ""
 
-#: handlers.py:132
+#: handlers.py:133
 msgid "This task has already been completed"
 msgstr ""
 
-#: handlers.py:140
+#: handlers.py:141
 msgid "This task is marked as in progress"
 msgstr ""
 
-#: handlers.py:149
+#: handlers.py:150
 msgid "Invalid file format! Need a file in csv format"
 msgstr ""
 
-#: handlers.py:153
+#: handlers.py:154
 msgid "The submitted file has no signature with the electric unicycle model"
 msgstr ""
 
-#: handlers.py:156
+#: handlers.py:157
 msgid "Thanks for your input!"
 msgstr ""
 
-#: handlers.py:169
+#: handlers.py:171
 msgid ""
-"*Task {task_id}*\n"
+"*Difficulty: {task_title}*\n"
 "User: [{user_name}](tg://user?id={user_id})\n"
 "Message: {caption}"
 msgstr ""
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Registration passed!"
 msgstr ""
 
-#: utils.py:69
-msgid "Task"
+#: utils.py:68
+msgid "Difficulty:"
 msgstr ""
 

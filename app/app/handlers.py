@@ -67,8 +67,7 @@ async def tasks_handler(message: Message):
 
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     for task in tasks:
-        num = task['id']
-        button = KeyboardButton(f"{_('Task')} {num}")
+        button = KeyboardButton(f"{_('Difficulty:')} {task['title']}")
         keyboard.add(button)
 
     await message.answer(_("*Allow tasks*"), parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard)
@@ -76,8 +75,9 @@ async def tasks_handler(message: Message):
 
 @dp.message_handler(is_task)
 async def task_handler(message: Message):
-    task_id = await task_parser(message.text)
-    task = await crud_task.get(task_id)
+    task_title = await task_parser(message.text)
+    task = await crud_task.get_by_title(task_title)
+    task_id = task['id']
 
     if task is None:
         await message.answer(_("Task with this id does not exist"))
@@ -95,7 +95,7 @@ async def task_handler(message: Message):
         keyboard = await task_keyboard(task['example_road'], task_id)
 
     text = _(
-        "*Task {task_id}*\n"
+        "*Difficulty: {task_title}*\n"
         "Status: {status}\n\n"
         "*Task description*\n"
         "Drive along {road_type} with slides and slopes at an angle of no more than {permissible_angle} degrees. "
@@ -103,7 +103,7 @@ async def task_handler(message: Message):
         "Speed should be within {need_speed} km/h. The trip should be recorded to a file using the WheelLog "
         "program. If you have an iOS device, use the EUCWorld application. In the report, along with the file, "
         "write which unicycle you drove"
-    ).format(**task, task_id=task_id, status=status)
+    ).format(**task, task_title=task_title, status=status)
 
     await message.answer(text, reply_markup=keyboard, parse_mode=ParseMode.MARKDOWN)
 
@@ -159,16 +159,17 @@ async def report_handler(message: Message):
     user = await crud_user.get_or_create(message.from_user.id)
     await crud_user.add_done_task(message.from_user.id, user.proceed_task)
     await crud_user.unset_proceed_task(message.from_user.id)
+    task = await crud_task.get(user.proceed_task)
 
     format_data = dict(
-        task_id=user.proceed_task,
+        task_title=task['title'],
         user_name=message.from_user.full_name,
         user_id=message.from_user.id,
         caption=message.caption
     )
 
     text = _(
-        "*Task {task_id}*\n"
+        "*Difficulty: {task_title}*\n"
         "User: [{user_name}](tg://user?id={user_id})\n"
         "Message: {caption}"
     ).format(**format_data)
