@@ -35,8 +35,8 @@ async def check_value(column: Column, value: str):
 async def registration_messages(user_id: int):
     registration_procedure = {
         User.place_residence.key: _("Where do you live? Please write your country and city names, e.g. New York, US"),
-        User.normal_distance.key: _("Which distance you typically ride(in kilometres)?"),
-        User.normal_speed.key: _("What speed do you ride most often?"),
+        User.normal_distance.key: _("How many kilometers do you travel on a unicycle per day?"),
+        User.normal_speed.key: _("What is your average speed on a unicycle?"),
     }
 
     column = await crud_user.next_need_column(user_id)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-06 00:21+0300\n"
+"POT-Creation-Date: 2020-08-06 18:36+0300\n"
 "PO-Revision-Date: 2020-08-05 19:07+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -21,20 +21,20 @@ msgstr ""
 
 #: handlers.py:16
 msgid ""
-"Hello! With this bot, you can subscribe to the EUC Testing Initiative for"
-" UniRoadMap to help us create a really polished and good product! Your "
-"data will be used to create unique settings for each EUC model for our "
-"navigation engine. Every personal information about you is stored "
-"securely and no one except our developers can access it."
+"Hello! With this bot, you can subscribe to the **EUC Testing Initiative "
+"for UniRoadMap** to help us create a really polished and _good_ product! "
+"Your data will be used to create **unique** settings for **each** EUC "
+"model for our navigation engine. Every personal information about you is "
+"stored _securely_ and **no one** except our developers can access it. "
 msgstr ""
-"Здравствуйте! С помощью этого бота вы можете подписаться на EUC Testing "
-"Initiative для UniRoadMap, чтобы помочь нам создать действительно "
-"отточенный и хороший продукт! Ваши данные будут использованы для создания"
-" уникальных настроек для каждой модели EUC для нашего навигационного "
-"движка. Каждая личная информация о вас надежно хранится, и никто, кроме "
-"наших разработчиков, не может получить к ней доступ."
+"Здравствуйте! С помощью этого бота вы можете подписаться на **EUC Testing"
+" Initiative for UniRoadMap**, чтобы помочь нам создать действительно "
+"отточенный и _хороший_ продукт! Ваши данные будут использоваться для "
+"создания **уникальных** настроек для **каждой** модели EUC для нашей "
+"системы навигации. Вся личная информация о вас хранится _надежно_, и "
+"**никто**, кроме наших разработчиков, не может получить к ней доступ."
 
-#: handlers.py:32
+#: handlers.py:36
 msgid ""
 "This bot is designed to collect unicycle trip logs.\n"
 "These logs will help you create optimized configurations for each "
@@ -48,27 +48,27 @@ msgstr ""
 "\n"
 "Для того чтобы начать, следуйте инструкциям после вызова комманды /start"
 
-#: handlers.py:85
+#: handlers.py:90
 msgid "*Allow tasks*"
 msgstr "*Доступные задания*"
 
-#: handlers.py:95 handlers.py:161
+#: handlers.py:99 handlers.py:167
 msgid "Task with this id does not exist"
 msgstr "Задачи с таким id не существует"
 
-#: handlers.py:100
+#: handlers.py:106
 msgid "Done"
 msgstr "Готово"
 
-#: handlers.py:103
+#: handlers.py:109
 msgid "In work"
 msgstr "В работе"
 
-#: handlers.py:106
+#: handlers.py:112
 msgid "Not performed"
 msgstr "Не выполнено"
 
-#: handlers.py:109
+#: handlers.py:115
 msgid ""
 "*Difficulty: {task_title}*\n"
 "Status: {status}\n"
@@ -94,15 +94,15 @@ msgstr ""
 "EUCWorld. В отчете вместе с файлом напишите, на каком моноколесе вы "
 "ехали."
 
-#: handlers.py:138
+#: handlers.py:144
 msgid "Task refused"
 msgstr "Задача отклонена"
 
-#: handlers.py:145
+#: handlers.py:151
 msgid "This task has already been completed"
 msgstr "Это задание уже выполнено"
 
-#: handlers.py:153
+#: handlers.py:159
 msgid ""
 "After completing this task, send the recorded logs to the bot in csv "
 "format and a signature to the file with the model of your electric "
@@ -111,19 +111,19 @@ msgstr ""
 "После выполнения этого задания отправьте записанные логи боту в формате "
 "csv и подписью к файлу с моделью вашего моноколеса"
 
-#: handlers.py:167
+#: handlers.py:179
 msgid "Invalid file format! Need a file in csv format"
 msgstr "Неверный формат файла! Нужен файл в формате csv"
 
-#: handlers.py:171
+#: handlers.py:183
 msgid "The submitted file has no signature with the electric unicycle model"
 msgstr "Отправленный файл не имеет подписи с моделью моноколеса"
 
-#: handlers.py:174
+#: handlers.py:186
 msgid "Thanks for your input!"
 msgstr "Спасибо за ваш вклад!"
 
-#: handlers.py:181
+#: handlers.py:193
 msgid ""
 "*Difficulty: {task_title}*\n"
 "User: [{user_name}](tg://user?id={user_id})\n"
@@ -139,7 +139,7 @@ msgstr ""
 "Место проживания: {place_residence}\n"
 "Сообщение: {caption}"
 
-#: handlers.py:204
+#: handlers.py:216
 msgid ""
 "The request was not recognized. For instructions on how to use the bot, "
 "call the /help command"
@@ -158,6 +158,10 @@ msgstr "Отказаться от исполнения"
 #: keyboards.py:17
 msgid "Proceed with!"
 msgstr "Приступить к выполнению!"
+
+#: keyboards.py:24
+msgid "Register"
+msgstr "Зарегистрироваться"
 
 #: utils.py:24
 msgid "The maximum allowed length for this value is {max_length} characters"
@@ -178,12 +182,12 @@ msgstr ""
 "Например: Киев, Украина"
 
 #: utils.py:38
-msgid "Which distance you typically ride(in kilometres)?"
-msgstr "Какое расстояние вы обычно проезжаете (в километрах)?"
+msgid "How many kilometers do you travel on a unicycle per day?"
+msgstr "Сколько вы проезжаете километров на моноколесе за день?"
 
 #: utils.py:39
-msgid "What speed do you ride most often?"
-msgstr "На какой скорости вы ездите чаще всего?"
+msgid "What is your average speed on a unicycle?"
+msgstr "Какая ваша средняя скорость поездки на моноколесе?"
 
 #: utils.py:45
 msgid "Registration passed!"

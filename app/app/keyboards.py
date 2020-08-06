@@ -17,3 +17,9 @@ async def task_keyboard(example_road, task_id: Optional[int] = None, only_exampl
         keyboard.add(InlineKeyboardButton(_('Proceed with!'), callback_data=f'task/{task_id}'))
 
     return keyboard
+
+
+async def welcome_keyboard() -> InlineKeyboardMarkup:
+    keyboard = InlineKeyboardMarkup()
+    keyboard.add(InlineKeyboardButton(_('Register'), callback_data='register'))
+    return keyboard

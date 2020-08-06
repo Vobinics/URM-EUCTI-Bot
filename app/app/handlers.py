@@ -5,7 +5,7 @@ from app.core.bot import dp, bot
 from app.core.config import settings
 from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
-from app.keyboards import task_keyboard
+from app.keyboards import task_keyboard, welcome_keyboard
 from app.utils import (not_registered, check_value, registration_messages, task_parser, is_admin, is_task, menu,
                        menu_parser, is_private)
 
@@ -14,17 +14,21 @@ from app.utils import (not_registered, check_value, registration_messages, task_
 async def start_handler(message: Message):
     # Welcome
     text = _(
-        "Hello! With this bot, you can subscribe to the EUC Testing Initiative for UniRoadMap to help us create "
-        "a really polished and good product! Your data will be used to create unique settings for each EUC model "
-        "for our navigation engine. Every personal information about you is stored securely and no one except "
-        "our developers can access it."
+        "Hello! With this bot, you can subscribe to the **EUC Testing Initiative for UniRoadMap** to help us create a "
+        "really polished and _good_ product! Your data will be used to create **unique** settings for **each** EUC "
+        "model for our navigation engine. Every personal information about you is stored _securely_ and **no one** "
+        "except our developers can access it. "
     )
-    await message.answer(text)
 
-    if await crud_user.is_registered(message.from_user.id):
+    registered = await crud_user.is_registered(message.from_user.id)
+
+    if registered:
+        await message.answer(text, parse_mode=ParseMode.MARKDOWN)
         await tasks_handler(message)
-    else:
-        await registration_messages(message.from_user.id)
+        return
+
+    keyboard = await welcome_keyboard()
+    await message.answer(text, reply_markup=keyboard, parse_mode=ParseMode.MARKDOWN)
 
 
 @dp.message_handler(filters.CommandHelp(), is_private)
@@ -37,7 +41,7 @@ async def help_handler(message: Message):
     await message.answer(text)
 
 
-@dp.message_handler(filters.Command('cmd-set'), is_admin, is_private)
+@dp.message_handler(filters.Command('set_cmd'), is_admin, is_private)
 async def set_commands(message: Message):
     commands = [
         BotCommand(command="/start", description="Start"),
@@ -161,6 +165,12 @@ async def proceed_task_handler(callback_query: CallbackQuery):
 
     else:
         await callback_query.answer(_("Task with this id does not exist"))
+
+
+@dp.callback_query_handler(menu('register', 0))
+async def register(callback_query: CallbackQuery):
+    await registration_messages(callback_query.from_user.id)
+    await callback_query.message.delete()
 
 
 @dp.message_handler(is_private, content_types=ContentType.DOCUMENT)
