@@ -7,7 +7,7 @@ from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
 from app.keyboards import task_keyboard, welcome_keyboard
 from app.utils import (not_registered, check_value, registration_messages, task_parser, is_admin, is_task, menu,
-                       menu_parser, is_private)
+                       menu_parser, is_private, is_task_lock)
 
 
 @dp.message_handler(filters.CommandStart(), is_private)
@@ -24,7 +24,12 @@ async def start_handler(message: Message):
 
     if registered:
         await message.answer(text, parse_mode=ParseMode.MARKDOWN)
-        await tasks_handler(message)
+
+        if await is_task_lock(message):
+            await tasks_plug(message)
+        else:
+            await tasks_handler(message)
+
         return
 
     keyboard = await welcome_keyboard()
@@ -74,8 +79,26 @@ async def registration(message: Message):
     await crud_user.update(user, **{column.key: value})
 
     success = await registration_messages(message.from_user.id)
-    if success:
+
+    if not success:
+        return
+
+    if await is_task_lock(message):
+        await tasks_plug(message)
+    else:
         await tasks_handler(message)
+
+
+@dp.message_handler(is_task_lock, is_private)
+async def tasks_plug(message: Message):
+    if message.from_user.locale.language == 'ru':
+        channel = '@dynamiumru'
+    else:
+        channel = '@dynamium'
+
+    text = _("Quests coming soon! Follow the news on our channel {channel}").format(channel=channel)
+
+    await message.answer(text)
 
 
 @dp.message_handler(filters.Command('tasks'), is_private)

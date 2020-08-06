@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     ADMINS_IDS: List[int] = []
     CHAT_ID: int
     DEBUG: bool = False
+    TASK_LOCK: bool = False
     DATA_FOLDER: Path = BASE_DIR / 'data'
 
     POSTGRES_SERVER: str

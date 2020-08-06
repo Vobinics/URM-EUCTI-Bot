@@ -78,9 +78,13 @@ async def is_task(message: Message):
         return True
 
 
-async def is_admin(message: Message):
+async def is_admin(message: Message) -> bool:
     return message.from_user.id in settings.ADMINS_IDS
 
 
-async def is_private(message: Message):
+async def is_private(message: Message) -> bool:
     return message.chat.type == 'private'
+
+
+async def is_task_lock(message: Message) -> bool:
+    return settings.TASK_LOCK
