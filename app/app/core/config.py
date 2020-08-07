@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Optional, List
 
@@ -11,7 +12,7 @@ class Settings(BaseSettings):
     ADMINS_IDS: List[int] = []
     CHAT_ID: int
     DEBUG: bool = False
-    TASK_LOCK: bool = False
+    TASKS_UNLOCK_TIME: Optional[datetime] = None
     DATA_FOLDER: Path = BASE_DIR / 'data'
 
     POSTGRES_SERVER: str

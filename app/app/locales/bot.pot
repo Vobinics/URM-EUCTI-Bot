@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-06 19:35+0300\n"
+"POT-Creation-Date: 2020-08-07 15:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,8 +35,8 @@ msgid ""
 "To start, follow the instructions after calling the command /start"
 msgstr ""
 
-#: handlers.py:99
-msgid "Quests coming soon! Follow the news on our channel {channel}"
+#: handlers.py:97
+msgid "Tasks will be available {unlock_time}. Left {left_time}"
 msgstr ""
 
 #: handlers.py:113
@@ -133,33 +133,33 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: utils.py:24
+#: utils.py:25
 msgid "The maximum allowed length for this value is {max_length} characters"
 msgstr ""
 
-#: utils.py:30
+#: utils.py:31
 msgid "The entered value is not an integer"
 msgstr ""
 
-#: utils.py:37
+#: utils.py:38
 msgid ""
 "Where do you live? Please write your country and city names, e.g. New "
 "York, US"
 msgstr ""
 
-#: utils.py:38
+#: utils.py:39
 msgid "How many kilometers do you travel on a unicycle per day?"
 msgstr ""
 
-#: utils.py:39
+#: utils.py:40
 msgid "What is your average speed on a unicycle?"
 msgstr ""
 
-#: utils.py:45
+#: utils.py:46
 msgid "Registration passed!"
 msgstr ""
 
-#: utils.py:68
+#: utils.py:69
 msgid "Difficulty:"
 msgstr ""
 

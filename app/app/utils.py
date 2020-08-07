@@ -1,4 +1,5 @@
-from typing import List, Union
+from datetime import datetime
+from typing import List, Union, Optional
 
 from aiogram.types import Message, CallbackQuery
 from app.core.bot import bot
@@ -87,4 +88,8 @@ async def is_private(message: Message) -> bool:
 
 
 async def is_task_lock(message: Message) -> bool:
-    return settings.TASK_LOCK
+    return False if settings.TASKS_UNLOCK_TIME is None else settings.TASKS_UNLOCK_TIME > message.date
+
+
+async def time_left_start(message: Message) -> Optional[datetime]:
+    return None if not is_task_lock(message) else settings.TASKS_UNLOCK_TIME - message.date

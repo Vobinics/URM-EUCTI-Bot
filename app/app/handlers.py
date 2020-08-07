@@ -7,7 +7,7 @@ from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
 from app.keyboards import task_keyboard, welcome_keyboard
 from app.utils import (not_registered, check_value, registration_messages, task_parser, is_admin, is_task, menu,
-                       menu_parser, is_private, is_task_lock)
+                       menu_parser, is_private, is_task_lock, time_left_start)
 
 
 @dp.message_handler(filters.CommandStart(), is_private)
@@ -91,12 +91,12 @@ async def registration(message: Message):
 
 @dp.message_handler(is_task_lock, is_private)
 async def tasks_plug(message: Message):
-    if message.from_user.locale.language == 'ru':
-        channel = '@dynamiumru'
-    else:
-        channel = '@dynamium'
+    left_time = await time_left_start(message)
+    unlock_time = settings.TASKS_UNLOCK_TIME
 
-    text = _("Quests coming soon! Follow the news on our channel {channel}").format(channel=channel)
+    text = _(
+        "Tasks will be available {unlock_time}. Left {left_time}"
+    ).format(unlock_time=unlock_time, left_time=left_time)
 
     await message.answer(text)
 

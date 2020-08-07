@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-06 19:35+0300\n"
+"POT-Creation-Date: 2020-08-07 15:59+0300\n"
 "PO-Revision-Date: 2020-08-05 19:07+0300\n"
 "Last-Translator: Vobinics NIKITA <vobinics@gmail.com>\n"
 "Language: ru\n"
@@ -48,9 +48,9 @@ msgstr ""
 "\n"
 "Для того чтобы начать, следуйте инструкциям после вызова комманды /start"
 
-#: handlers.py:99
-msgid "Quests coming soon! Follow the news on our channel {channel}"
-msgstr "Задания скоро будут! Следи за новостями на нашем канале {channel}"
+#: handlers.py:97
+msgid "Tasks will be available {unlock_time}. Left {left_time}"
+msgstr "Задания будут доступны {unlock_time}. Осталось {left_time}"
 
 #: handlers.py:113
 msgid "*Allow tasks*"
@@ -167,17 +167,17 @@ msgstr "Приступить к выполнению!"
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: utils.py:24
+#: utils.py:25
 msgid "The maximum allowed length for this value is {max_length} characters"
 msgstr ""
 "Максимальная допустимая длина для этого значения является {max_length} "
 "символов"
 
-#: utils.py:30
+#: utils.py:31
 msgid "The entered value is not an integer"
 msgstr "Введенное значение не является целым числом"
 
-#: utils.py:37
+#: utils.py:38
 msgid ""
 "Where do you live? Please write your country and city names, e.g. New "
 "York, US"
@@ -185,19 +185,19 @@ msgstr ""
 "Где вы живете? Пожалуйста, напишите название вашей страны и города. "
 "Например: Киев, Украина"
 
-#: utils.py:38
+#: utils.py:39
 msgid "How many kilometers do you travel on a unicycle per day?"
 msgstr "Сколько вы проезжаете километров на моноколесе за день?"
 
-#: utils.py:39
+#: utils.py:40
 msgid "What is your average speed on a unicycle?"
 msgstr "Какая ваша средняя скорость поездки на моноколесе?"
 
-#: utils.py:45
+#: utils.py:46
 msgid "Registration passed!"
 msgstr "Регистрация завершена!"
 
-#: utils.py:68
+#: utils.py:69
 msgid "Difficulty:"
 msgstr "Сложность:"
 
