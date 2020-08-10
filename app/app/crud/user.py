@@ -12,6 +12,10 @@ class CRUDUser:
         return await User.query.where(User.id == user_id).gino.first()
 
     @staticmethod
+    async def get_ids() -> List[int]:
+        return [user.id for user in await User.query.with_only_columns([User.id]).gino.all()]
+
+    @staticmethod
     async def create(user_id: int) -> User:
         return await User(id=user_id).create()
 

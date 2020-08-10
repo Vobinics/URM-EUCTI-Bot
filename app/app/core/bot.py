@@ -5,5 +5,5 @@ bot = Bot(token=settings.API_TOKEN)
 dp = Dispatcher(bot)
 
 
-def run():
-    executor.start_polling(dp)
+def run(loop=None):
+    executor.start_polling(dp, loop=loop)

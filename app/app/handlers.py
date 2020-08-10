@@ -52,7 +52,6 @@ async def set_commands(message: Message):
         BotCommand(command="/start", description="Start"),
         BotCommand(command="/help", description="Help message"),
         BotCommand(command="/tasks", description="Allow tasks")
-        # BotCommand(command="/execution", description="Task in execution")
     ]
     await message.bot.set_my_commands(commands)
     await message.answer("Commands set up!")
