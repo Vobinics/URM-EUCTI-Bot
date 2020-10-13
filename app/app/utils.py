@@ -91,5 +91,9 @@ async def is_task_lock(message: Message) -> bool:
     return False if settings.TASKS_UNLOCK_TIME is None else settings.TASKS_UNLOCK_TIME > message.date
 
 
+async def is_deactivate(message: Message) -> bool:
+    return settings.DEACTIVATE
+
+
 async def time_left_start(message: Message) -> Optional[datetime]:
     return None if not is_task_lock(message) else settings.TASKS_UNLOCK_TIME - message.date

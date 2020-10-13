@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-10 15:22+0300\n"
+"POT-Creation-Date: 2020-10-14 00:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: alerts.py:16
+#: alerts.py:17
 msgid ""
 "Tasks are ready! Thank you for your interest in our initiative and your "
 "desire to help the development of UniRoadMap! Thanks to your help, the "
@@ -42,31 +42,35 @@ msgid ""
 "To start, follow the instructions after calling the command /start"
 msgstr ""
 
-#: handlers.py:96
+#: handlers.py:93
+msgid "Data collection is over. Thank you for participating!"
+msgstr ""
+
+#: handlers.py:102
 msgid "Tasks will be available {unlock_time}. Left {left_time}"
 msgstr ""
 
-#: handlers.py:112
+#: handlers.py:118
 msgid "*Allow tasks*"
 msgstr ""
 
-#: handlers.py:121 handlers.py:189
+#: handlers.py:127 handlers.py:195
 msgid "Task with this id does not exist"
 msgstr ""
 
-#: handlers.py:128
+#: handlers.py:134
 msgid "Done"
 msgstr ""
 
-#: handlers.py:131
+#: handlers.py:137
 msgid "In work"
 msgstr ""
 
-#: handlers.py:134
+#: handlers.py:140
 msgid "Not performed"
 msgstr ""
 
-#: handlers.py:137
+#: handlers.py:143
 msgid ""
 "*Difficulty: {task_title}*\n"
 "Status: {status}\n"
@@ -81,34 +85,34 @@ msgid ""
 " drove"
 msgstr ""
 
-#: handlers.py:166
+#: handlers.py:172
 msgid "Task refused"
 msgstr ""
 
-#: handlers.py:173
+#: handlers.py:179
 msgid "This task has already been completed"
 msgstr ""
 
-#: handlers.py:181
+#: handlers.py:187
 msgid ""
 "After completing this task, send the recorded logs to the bot in csv "
 "format and a signature to the file with the model of your electric "
 "unicycle"
 msgstr ""
 
-#: handlers.py:201
+#: handlers.py:207
 msgid "Invalid file format! Need a file in csv format"
 msgstr ""
 
-#: handlers.py:205
+#: handlers.py:211
 msgid "The submitted file has no signature with the electric unicycle model"
 msgstr ""
 
-#: handlers.py:208
+#: handlers.py:214
 msgid "Thanks for your input!"
 msgstr ""
 
-#: handlers.py:215
+#: handlers.py:221
 msgid ""
 "*Difficulty: {task_title}*\n"
 "User: [{user_name}](tg://user?id={user_id})\n"
@@ -118,7 +122,7 @@ msgid ""
 "Message: {caption}"
 msgstr ""
 
-#: handlers.py:238
+#: handlers.py:244
 msgid ""
 "The request was not recognized. For instructions on how to use the bot, "
 "call the /help command"

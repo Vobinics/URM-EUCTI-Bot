@@ -7,7 +7,7 @@ from app.core.language import _  # noqa
 from app.crud import crud_user, crud_task
 from app.keyboards import task_keyboard, welcome_keyboard
 from app.utils import (not_registered, check_value, registration_messages, task_parser, is_admin, is_task, menu,
-                       menu_parser, is_private, is_task_lock, time_left_start)
+                       menu_parser, is_private, is_task_lock, time_left_start, is_deactivate)
 
 
 @dp.message_handler(filters.CommandStart(), is_private)
@@ -86,6 +86,12 @@ async def registration(message: Message):
         await tasks_plug(message)
     else:
         await tasks_handler(message)
+
+
+@dp.message_handler(is_deactivate, is_private)
+async def bot_cap(message: Message):
+    text = _("Data collection is over. Thank you for participating!")
+    await message.answer(text)
 
 
 @dp.message_handler(is_task_lock, is_private)

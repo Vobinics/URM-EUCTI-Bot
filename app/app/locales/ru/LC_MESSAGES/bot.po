@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-10 15:22+0300\n"
+"POT-Creation-Date: 2020-10-14 00:01+0300\n"
 "PO-Revision-Date: 2020-08-05 19:07+0300\n"
 "Last-Translator: Vobinics NIKITA <vobinics@gmail.com>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: alerts.py:16
+#: alerts.py:17
 msgid ""
 "Tasks are ready! Thank you for your interest in our initiative and your "
 "desire to help the development of UniRoadMap! Thanks to your help, the "
@@ -58,31 +58,35 @@ msgstr ""
 "\n"
 "Для того чтобы начать, следуйте инструкциям после вызова комманды /start"
 
-#: handlers.py:96
+#: handlers.py:93
+msgid "Data collection is over. Thank you for participating!"
+msgstr "Сбор данных окончен. Спасибо за участие!"
+
+#: handlers.py:102
 msgid "Tasks will be available {unlock_time}. Left {left_time}"
 msgstr "Задания будут доступны {unlock_time}. Осталось {left_time}"
 
-#: handlers.py:112
+#: handlers.py:118
 msgid "*Allow tasks*"
 msgstr "*Доступные задания*"
 
-#: handlers.py:121 handlers.py:189
+#: handlers.py:127 handlers.py:195
 msgid "Task with this id does not exist"
 msgstr "Задачи с таким id не существует"
 
-#: handlers.py:128
+#: handlers.py:134
 msgid "Done"
 msgstr "Готово"
 
-#: handlers.py:131
+#: handlers.py:137
 msgid "In work"
 msgstr "В работе"
 
-#: handlers.py:134
+#: handlers.py:140
 msgid "Not performed"
 msgstr "Не выполнено"
 
-#: handlers.py:137
+#: handlers.py:143
 msgid ""
 "*Difficulty: {task_title}*\n"
 "Status: {status}\n"
@@ -108,15 +112,15 @@ msgstr ""
 "EUCWorld. В отчете вместе с файлом напишите, на каком моноколесе вы "
 "ехали."
 
-#: handlers.py:166
+#: handlers.py:172
 msgid "Task refused"
 msgstr "Задача отклонена"
 
-#: handlers.py:173
+#: handlers.py:179
 msgid "This task has already been completed"
 msgstr "Это задание уже выполнено"
 
-#: handlers.py:181
+#: handlers.py:187
 msgid ""
 "After completing this task, send the recorded logs to the bot in csv "
 "format and a signature to the file with the model of your electric "
@@ -125,19 +129,19 @@ msgstr ""
 "После выполнения этого задания отправьте записанные логи боту в формате "
 "csv и подписью к файлу с моделью вашего моноколеса"
 
-#: handlers.py:201
+#: handlers.py:207
 msgid "Invalid file format! Need a file in csv format"
 msgstr "Неверный формат файла! Нужен файл в формате csv"
 
-#: handlers.py:205
+#: handlers.py:211
 msgid "The submitted file has no signature with the electric unicycle model"
 msgstr "Отправленный файл не имеет подписи с моделью моноколеса"
 
-#: handlers.py:208
+#: handlers.py:214
 msgid "Thanks for your input!"
 msgstr "Спасибо за ваш вклад!"
 
-#: handlers.py:215
+#: handlers.py:221
 msgid ""
 "*Difficulty: {task_title}*\n"
 "User: [{user_name}](tg://user?id={user_id})\n"
@@ -153,7 +157,7 @@ msgstr ""
 "Место проживания: {place_residence}\n"
 "Сообщение: {caption}"
 
-#: handlers.py:238
+#: handlers.py:244
 msgid ""
 "The request was not recognized. For instructions on how to use the bot, "
 "call the /help command"

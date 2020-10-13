@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     ADMINS_IDS: List[int] = []
     CHAT_ID: int
     DEBUG: bool = False
+    DEACTIVATE: bool = False
     TASKS_UNLOCK_TIME: Optional[datetime] = None
     DATA_FOLDER: Path = BASE_DIR / 'data'
 
